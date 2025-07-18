@@ -100,7 +100,3 @@ async def chat(body: ChatRequest, x_api_key: str = Header(None)):
 
     return {"answer": answer}
 
-# Serve the web UI at the root URL
-@app.get("/")
-def serve_webui():
-    return FileResponse("webui.html")
