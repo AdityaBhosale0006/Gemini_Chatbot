@@ -1,0 +1,97 @@
+{
+    "institution": {
+      "name": "Pimpri Chinchwad College of Engineering (PCCoE)",
+      "location": "Pimpri Chinchwad, Pune, India",
+      "established": 1999,
+      "managed_by": "Pimpri Chinchwad Education Trust (PCET)",
+      "description": "PCCoE is one of the best engineering colleges in Pune, offering a professional environment for academics, industry-oriented training, co-curricular activities, and excellent placements. It is affiliated with Savitribai Phule Pune University (SPPU).",
+      "why_choose": [
+        "Proactive academic and training environment",
+        "Participation and achievement in state and national level competitions",
+        "Excellent academic results",
+        "Strong industry interaction and mentorship",
+        "Excellent placement record"
+      ],
+      "city_highlights": {
+        "name": "Pimpri Chinchwad",
+        "features": [
+          "Well-planned and green city",
+          "Industrial hub known as Detroit of the East",
+          "Presence of national and multinational automobile, manufacturing, and IT companies",
+          "Rich cultural heritage and history",
+          "Access to top professional, educational, medical, and recreational facilities",
+          "Less pollution and population congestion compared to urban centers",
+          "Approximately 3,000 industries in the vicinity"
+        ]
+      },
+      "campuses": {
+        "location": "PCMC area",
+        "surroundings": "Industrial and IT hubs / Special Economic Zone"
+      }
+    },
+    "international_admissions": {
+      "eligibility_criteria": {
+        "applicants": [
+          "Foreign Nationals",
+          "Children of NRI / OCI / PIO",
+          "Children of Indian Workers in Gulf Countries"
+        ],
+        "requirements": [
+          "HSC or equivalent with Physics and Mathematics as compulsory subjects, and one of Chemistry/Biotechnology/Biology/Technical/Vocational subjects",
+          "Minimum 45% marks",
+          "Subject to rules and regulations of DTE/ARA/Govt. of Maharashtra"
+        ]
+      },
+      "documents_required": {
+        "foreign_nationals": [
+          "Eligibility Certificate from AIU",
+          "Passport of the Candidate",
+          "Affidavit of candidate/parent with full identity details",
+          "Proof of residence (Driving License or Telephone Bill)",
+          "Statement of Marks/Certificate of Passing SSC or Equivalent",
+          "Statement of Marks/Certificate of Passing HSC or Equivalent",
+          "Statement of Marks/Certificate of Passing Qualifying or Equivalent Exam"
+        ],
+        "PIO": [
+          "Eligibility Certificate from AIU",
+          "Passport of the Candidate",
+          "PIO / OCI Card",
+          "Affidavit of candidate/parent with full identity details",
+          "Proof of residence (Driving License, Telephone Bill, Property Tax, IT return)",
+          "Statement of Marks/Certificate of Passing SSC or Equivalent",
+          "Statement of Marks/Certificate of Passing HSC or Equivalent",
+          "Statement of Marks/Certificate of Passing Qualifying or Equivalent Exam"
+        ],
+        "CIWGC": [
+          "CIWGC Certificate of Candidate or Parent",
+          "Affidavit of candidate/parent with full identity details",
+          "Passport and Nationality Certificate of Parent",
+          "Residence and Valid VISA of Parent in Gulf",
+          "Work Permit or Letter from Employer",
+          "Proof of residence (Driving License, Telephone Bill, Property Tax, IT return)",
+          "Proof of minimum 182 days of Parent stay in Gulf for the academic year prior to admission",
+          "Gulf bank account passbook with entries for last 6 months",
+          "Eligibility Certificate from AIU",
+          "Statement of Marks/Certificate of Passing SSC or Equivalent",
+          "Statement of Marks/Certificate of Passing HSC or Equivalent",
+          "Statement of Marks/Certificate of Passing Qualifying or Equivalent Exam"
+        ],
+        "NRI": [
+          "NRI Certificate of Candidate or of a close relative with affidavit and documentary evidence",
+          "Affidavit of candidate/sponsor with full identity details",
+          "Passport and Nationality Certificate of Sponsor",
+          "Residence and Valid VISA of Sponsor",
+          "Proof of residence (Driving License, Telephone Bill, Property Tax, IT return)",
+          "Proof of minimum 182 days of sponsor stay abroad for the academic year prior to admission",
+          "Foreign bank account passbook with entries for last 6 months",
+          "Affidavit of family chart signed by sponsor",
+          "Supporting documents for family chart (Leaving certificates, Birth extracts, Mark sheets, PAN Card, Passport, Marriage Certificate)",
+          "Eligibility Certificate from AIU",
+          "Statement of Marks/Certificate of Passing SSC or Equivalent",
+          "Statement of Marks/Certificate of Passing HSC or Equivalent",
+          "Statement of Marks/Certificate of Passing Qualifying or Equivalent Exam"
+        ]
+      }
+    }
+  }
+  
