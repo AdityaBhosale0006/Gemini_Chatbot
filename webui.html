@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCCoE Gemini Chatbot Test UI</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 16px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 4px; border-radius: 4px; border: 1px solid #ccc; }
+        button { margin-top: 16px; padding: 10px 20px; border: none; border-radius: 4px; background: #1976d2; color: #fff; font-size: 1rem; cursor: pointer; }
+        button:disabled { background: #aaa; }
+        .chat-box { margin-top: 24px; background: #f9f9f9; border-radius: 6px; padding: 12px; min-height: 120px; }
+        .user { color: #1976d2; font-weight: bold; }
+        .assistant { color: #388e3c; font-weight: bold; }
+        .msg { margin: 8px 0; }
+        .error { color: #d32f2f; margin-top: 12px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PCCoE Gemini Chatbot</h1>
+        <label>API Key (for /chat endpoint):
+            <input type="text" id="apiKey" placeholder="Enter your API key" />
+        </label>
+        <label>Session ID (optional):
+            <input type="text" id="sessionId" placeholder="Leave blank for new session" />
+        </label>
+        <label>Your Question:
+            <textarea id="query" rows="3" placeholder="Type your question..."></textarea>
+        </label>
+        <button id="sendBtn">Send</button>
+        <div class="error" id="error"></div>
+        <div class="chat-box" id="chatBox"></div>
+    </div>
+    <script>
+        const apiUrl = "http://localhost:8000/chat";
+        const sendBtn = document.getElementById('sendBtn');
+        const apiKeyInput = document.getElementById('apiKey');
+        const sessionIdInput = document.getElementById('sessionId');
+        const queryInput = document.getElementById('query');
+        const chatBox = document.getElementById('chatBox');
+        const errorDiv = document.getElementById('error');
+        let history = [];
+
+        function renderChat() {
+            chatBox.innerHTML = '';
+            history.forEach(turn => {
+                const div = document.createElement('div');
+                div.className = 'msg';
+                if (turn.role === 'user') {
+                    div.innerHTML = `<span class="user">You:</span> ${turn.content}`;
+                } else {
+                    div.innerHTML = `<span class="assistant">Assistant:</span> ${turn.content}`;
+                }
+                chatBox.appendChild(div);
+            });
+        }
+
+        sendBtn.onclick = async () => {
+            errorDiv.textContent = '';
+            const apiKey = apiKeyInput.value.trim();
+            const sessionId = sessionIdInput.value.trim();
+            const query = queryInput.value.trim();
+            if (!apiKey) {
+                errorDiv.textContent = 'API key is required.';
+                return;
+            }
+            if (!query) {
+                errorDiv.textContent = 'Please enter a question.';
+                return;
+            }
+            sendBtn.disabled = true;
+            history.push({ role: 'user', content: query });
+            renderChat();
+            try {
+                const res = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': apiKey
+                    },
+                    body: JSON.stringify({
+                        session_id: sessionId || null,
+                        query: query
+                    })
+                });
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.detail || 'Error from server');
+                }
+                const data = await res.json();
+                // Save session ID if new
+                if (!sessionId && data.session_id) {
+                    sessionIdInput.value = data.session_id;
+                }
+                history.push({ role: 'assistant', content: data.answer });
+                renderChat();
+                queryInput.value = '';
+            } catch (e) {
+                errorDiv.textContent = e.message;
+            } finally {
+                sendBtn.disabled = false;
+            }
+        };
+    </script>
+</body>
+</html> 
